@@ -1,4 +1,4 @@
-"# learn-react-with-babel-coder" 
+# learn-react-with-babel-coder
 
 Dependencies
 - React
@@ -8,3 +8,6 @@ Dependencies
 - webpack-dev-server ใช้รัน localhost เพื่อเป็น server ที่ serv ไฟล์ html (ใช้สำหรับตอน development ไม่เกี่ยวกับ production เพราะ prod ก็คือ server ของ prod)
 - autoprefixer เติม vendor prefix css เพื่อให้ css ใช้งานได้ทุกบราวเซอร์ (เช่น -webkit-animation)
 - Local CSS ทำให้ใช้ CSS ได้โดยที่ไม่กระทบ Component อื่น (config สำหรับ css-loader นะ)
+
+day 2
+- config historyApiFallback: true เพื่อกรณีที่เข้า pages อื่นๆ จะหาหน้าไม่เจอ จะให้มันกลับไปหา bundle.js จะได้ไปใช้ config route.js เพื่อหาให้
