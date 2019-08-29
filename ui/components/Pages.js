@@ -9,6 +9,14 @@ class Pages extends Component {
         onReloadPages: PropTypes.func.isRequired
     }
 
+    componentWillReceiveProps(nextProps) {
+        console.log('presentation receive new props from container');
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+        console.log('presentation got new props');
+    }
+
     render() {
         const { pages, onReloadPages } = this.props
         return (

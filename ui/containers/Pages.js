@@ -18,6 +18,10 @@ export default class PagesContainer extends Component {
         this.onReloadPages();
     }
 
+    componentWillUpdate(nextProps, nextState) {
+        console.log('container set state');
+    }
+
     render() {
         // เรียกใช้ Presentational Component
         return <Pages pages={this.state.pages} 
