@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Home from './Home'
-import Pages from '../containers/Pages'
+import Pages from '../containers/Pages/Index'
 import Header from './App/Header'
 import styles from './App.scss'
-import ShowPage from '../containers/ShowPage'
+import ShowPage from '../containers/Pages/ShowPage'
 
 class App extends Component {
   render() {

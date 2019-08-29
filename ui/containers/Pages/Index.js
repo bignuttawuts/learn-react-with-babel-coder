@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import fetch from 'isomorphic-fetch'
-import { PAGES_ENDPOINT } from '../constants/endpoints'
-import Pages from '../components/Pages'
+import { PAGES_ENDPOINT } from '../../constants/endpoints'
+import Pages from '../../components/Pages/Index'
 
 export default class PagesContainer extends Component {
     state = {

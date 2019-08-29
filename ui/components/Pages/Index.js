@@ -1,6 +1,6 @@
 
 import React, { PropTypes } from 'react'
-import Page from './Page'
+import Page from '../Page'
 
 const Pages = ({ pages, onReloadPages }) => (
     <div>
