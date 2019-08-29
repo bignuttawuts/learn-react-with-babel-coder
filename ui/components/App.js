@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Home from './Home'
-import Pages from './Pages'
+import Pages from '../containers/Pages'
 import Header from './App/Header'
 import styles from './App.scss'
 
@@ -11,10 +11,12 @@ class App extends Component {
       <div>
         <Header />
         <div className='container'>
-          <Switch>
-            <Route path="/pages" component={Pages} />
-            <Route path="/" component={Home} />
-          </Switch>
+          <div className={styles['content']}>
+            <Switch>
+              <Route path="/pages" component={Pages} />
+              <Route path="/" component={Home} />
+            </Switch>
+            </div>
         </div>
       </div>
     )

@@ -1,26 +1,27 @@
 import React, { Component } from 'react'
 import styles from './Header.scss'
+import { Link } from 'react-router-dom';
 
 export default class Header extends Component {
   render() {
     return (
       <header className={styles['header']}>
         <nav>
-          <a href='/' className={styles['brand']}>
+          <Link to={{ pathname: '/' }} className={styles['brand']}>
             Babel Coder Wiki!
-          </a>
+          </Link>
           <ul className={styles['menu']}>
             <li className={styles['menu__item']}>
-              <a href='/pages' className={styles['menu__link']}>
+              <Link to={{ pathname: '/pages'  }} className={styles['menu__link']}>
                 All Pages
-              </a>
+              </Link>
             </li>
             <li className={styles['menu__item']}>
-              <a
-                href='#'
+              <Link
+                to={{ pathname: '#' }}
                 className={styles['menu__link']}>
                 About us
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>

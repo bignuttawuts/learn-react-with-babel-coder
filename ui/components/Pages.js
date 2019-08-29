@@ -1,7 +1,14 @@
 
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
+import Page from './Page'
 
 class Pages extends Component {
+
+    static propTypes = {
+        pages: PropTypes.array.isRequired,
+        onReloadPages: PropTypes.func.isRequired
+    }
+
     render() {
         return (
             <table className='table'>
@@ -13,13 +20,14 @@ class Pages extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>1</th>
-                        <td>Title Page#1</td>
-                        <td>
-                            <a href='javascript:void(0)'>Show</a>
-                        </td>
-                    </tr>
+                    {
+                        this.props.pages.map((page) => (
+                            <Page
+                                key={page.id}
+                                id={page.id}
+                                title={page.title} />
+                        ))
+                    }
                 </tbody>
             </table>
         )
