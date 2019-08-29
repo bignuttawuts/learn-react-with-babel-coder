@@ -22,6 +22,10 @@ export default class PagesContainer extends Component {
         console.log('container set state');
     }
 
+    shouldComponentUpdate(_nextProps, nextState) {
+        return this.state.pages !== nextState.pages;
+    }
+
     render() {
         // เรียกใช้ Presentational Component
         return <Pages pages={this.state.pages} 

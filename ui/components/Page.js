@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import { Link } from 'react-router-dom';
 
 export default class Page extends Component {
     static propTypes = {
@@ -14,7 +15,7 @@ export default class Page extends Component {
                 <th>{id}</th>
                 <td>{title}</td>
                 <td>
-                    <a href='javascript:void(0)'>Show</a>
+                   <Link to={{ pathname: `/pages/${id}` }}>Show</Link>
                 </td>
             </tr>
         )

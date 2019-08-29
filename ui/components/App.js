@@ -4,6 +4,7 @@ import Home from './Home'
 import Pages from '../containers/Pages'
 import Header from './App/Header'
 import styles from './App.scss'
+import ShowPage from '../containers/ShowPage'
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
         <div className='container'>
           <div className={styles['content']}>
             <Switch>
+              <Route path="/pages/:id" component={ShowPage} />
               <Route path="/pages" component={Pages} />
               <Route path="/" component={Home} />
             </Switch>
