@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { PAGES_ENDPOINT } from '../../constants/endpoints'
 import ShowPage from '../../components/Pages/ShowPage'
 
 export default class ShowPageContainer extends Component {
