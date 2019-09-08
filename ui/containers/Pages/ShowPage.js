@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { getPageById } from '../../reducers/pages'
+import { loadPage } from '../../actions/page'
 import ShowPage from '../../components/Pages/ShowPage'
 
-export default class ShowPageContainer extends Component {
+class ShowPageContainer extends Component {
   state = {
     page: {
       title: '',
@@ -9,22 +12,20 @@ export default class ShowPageContainer extends Component {
     }
   }
 
-  shouldComponentUpdate(_nextProps, nextState) {
-    return this.state.page !== nextState.page;
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.props.page !== nextProps.page;
   }
 
   componentDidMount() {
-    // react-router จะจับคู่ URL ที่เข้ามากับ ID 
-    // แล้วส่งค่า ID เข้ามาเป็น this.props.params.id
-    // เช่น ถ้าขณะนั้น path คือ /pages/1
-    // ID ที่ส่งเข้ามาจะเป็น 1
-    fetch(`${PAGES_ENDPOINT}/${this.props.match.params.id}`)
-      .then((response) => response.json())
-      .then((page) => this.setState({ page }))
+    const { onLoadPage, match } = this.props
+    const { id } = match.params
+    console.log(match)
+    // โหลดเพจตาม ID ที่ปรากฎบน URL
+    onLoadPage(id)
   }
 
   render() {
-    const { id, title, content } = this.state.page
+    const { id, title, content } = this.props.page
 
     return <ShowPage
       id={id}
@@ -32,3 +33,13 @@ export default class ShowPageContainer extends Component {
       content={content} />
   }
 }
+
+const mapStateToProps = (state, ownProps) => ({
+  // เลือกเพจด้วย ID
+  page: getPageById(state, ownProps.match.params.id)
+})
+
+export default connect(
+  mapStateToProps,
+  { onLoadPage: loadPage }
+)(ShowPageContainer)
